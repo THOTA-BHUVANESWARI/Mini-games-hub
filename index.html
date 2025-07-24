@@ -5,7 +5,6 @@
   <title>Mini Games Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape">
   <link rel="stylesheet" href="style.css">
-  <!-- Razorpay Checkout script -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
@@ -28,19 +27,19 @@
     <h1>Mini Games Hub</h1>
   </div>
   <div class="tabs">
-    <button class="tab-btn active" data-tab="sequence">Alphabet Sequence Catcher</button>
+    <button class="tab-btn active" data-tab="seq">Alphabet Sequence Catcher</button>
     <button class="tab-btn" data-tab="maths">Crazy Math Challenge</button>
     <button class="tab-btn" data-tab="fruit">Guess the Thing/Fruit</button>
-    <button class="tab-btn" data-tab="unique">Color Match</button>
+    <button class="tab-btn" data-tab="color">Color Match</button>
   </div>
   <div id="game-container">
-    <div class="tab-content" id="sequence" style="display:block;">
-      <div id="seq-score">Words Cleared: 0 / 10</div>
+    <div class="tab-content" id="seq">
+      <canvas id="seq-canvas" width="780" height="320"></canvas>
       <div id="seq-target-sequence"></div>
-      <canvas id="seq-canvas" width="900" height="350"></canvas>
+      <div id="seq-score"></div>
       <div id="seq-message"></div>
     </div>
-   <div class="tab-content" id="maths" style="display:none;">
+    <div class="tab-content" id="maths" style="display:none;">
       <div id="math-question"></div>
       <div id="math-options"></div>
       <div id="math-feedback"></div>
@@ -52,7 +51,7 @@
       <div id="fruit-feedback"></div>
       <div id="fruit-score">Score: 0</div>
     </div>
-    <div class="tab-content" id="unique" style="display:none;">
+    <div class="tab-content" id="color" style="display:none;">
       <div id="color-instruction"></div>
       <div id="color-buttons"></div>
       <div id="color-feedback"></div>
