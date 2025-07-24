@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Games Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape">
+  <link rel="stylesheet" href="style.css">
+  <!-- Razorpay Checkout script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <div id="payment-overlay">
+    <div class="payment-modal">
+      <img src="image1" alt="Psycho Logo" class="psycho-logo" style="margin-bottom:10px;">
+      <div class="payment-text">
+        Pay <strong>10 rupees</strong> to access this site for life long.<br>
+        <span style="font-size:0.95em;">
+          This money is used to help poor people. Please don’t misunderstand.
+        </span>
+      </div>
+      <button type="button" id="rzp-button">Pay with Razorpay</button>
+      <div class="note">After successful payment, the site will unlock for you forever.</div>
+    </div>
+  </div>
+  <div id="rotate-overlay">Please rotate your device to landscape mode to play!</div>
+  <div class="title-row">
+    <img src="image1" alt="Psycho Logo" class="psycho-logo">
+    <h1>Mini Games Hub</h1>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="sequence">Alphabet Sequence Catcher</button>
+    <button class="tab-btn" data-tab="maths">Crazy Math Challenge</button>
+    <button class="tab-btn" data-tab="fruit">Guess the Thing/Fruit</button>
+    <button class="tab-btn" data-tab="unique">Color Match</button>
+  </div>
+  <div id="game-container">
+    <div class="tab-content" id="sequence" style="display:block;">
+      <div id="seq-score">Words Cleared: 0 / 10</div>
+      <div id="seq-target-sequence"></div>
+      <canvas id="seq-canvas" width="900" height="350"></canvas>
+      <div id="seq-message"></div>
+    </div>
+    <div class="tab-content" id="maths" style="display:none;">
+      <div id="math-question"></div>
+      <input type="text" id="math-answer" autocomplete="off" />
+      <button id="math-submit">Submit</button>
+      <div id="math-feedback"></div>
+      <div id="math-score">Score: 0</div>
+    </div>
+    <div class="tab-content" id="fruit" style="display:none;">
+      <div id="fruit-hint"></div>
+      <div id="fruit-options"></div>
+      <div id="fruit-feedback"></div>
+      <div id="fruit-score">Score: 0</div>
+    </div>
+    <div class="tab-content" id="unique" style="display:none;">
+      <div id="color-instruction"></div>
+      <div id="color-buttons"></div>
+      <div id="color-feedback"></div>
+      <div id="color-score">Score: 0</div>
+    </div>
+  </div>
+  <footer style="margin-top:32px; font-size:1.1em; color:#f9d423;">
+    Developed by - psycho
+  </footer>
+  <script src="game.js"></script>
+</body>
+</html>

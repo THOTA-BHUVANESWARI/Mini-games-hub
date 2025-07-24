@@ -1,0 +1,269 @@
+body {
+  background: #181818;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  box-sizing: border-box;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  gap: 18px;
+}
+
+.psycho-logo {
+  height: 64px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.tabs {
+  margin-bottom: 18px;
+}
+
+.tab-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  margin: 0 4px;
+  font-size: 1em;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  border-radius: 5px 5px 0 0;
+  transition: background 0.2s, border-bottom 0.2s;
+}
+
+.tab-btn.active {
+  background: #0074D9;
+  border-bottom: 2px solid #f9d423;
+  color: #fff;
+}
+
+#game-container {
+  margin: 0 auto;
+  max-width: 950px;
+}
+
+.tab-content {
+  margin-top: 15px;
+  min-height: 340px;
+  padding: 20px;
+  background: #222;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 0 15px #000;
+}
+
+#seq-canvas {
+  background: #111;
+  border: 3px solid #fff;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 30px #000;
+  max-width: 100%;
+  height: auto;
+}
+
+#seq-score, #seq-target-sequence, #seq-message {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+
+#seq-target-sequence span {
+  font-size: 1.4em;
+  margin: 0 2px;
+}
+
+#math-question {
+  font-size: 1.35em;
+  margin-bottom: 12px;
+}
+
+#math-answer {
+  font-size: 1.15em;
+  padding: 5px;
+  width: 80px;
+  text-align: center;
+}
+
+#math-submit {
+  font-size: 1.1em;
+  padding: 7px 18px;
+  margin-left: 6px;
+  background: #0074D9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#math-feedback {
+  font-size: 1.1em;
+  margin-top: 10px;
+  min-height: 1.5em;
+  color: #f9d423;
+}
+
+#fruit-hint {
+  font-size: 1.3em;
+  margin-bottom: 14px;
+}
+
+#fruit-options button {
+  background: #0074D9;
+  color: #fff;
+  border: none;
+  margin: 6px;
+  padding: 12px 22px;
+  font-size: 1.1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#fruit-options button:hover {
+  background: #f9d423;
+  color: #222;
+}
+
+#fruit-feedback {
+  font-size: 1.1em;
+  margin-top: 12px;
+  min-height: 1.5em;
+  color: #f9d423;
+}
+
+#color-instruction {
+  font-size: 1.3em;
+  margin-bottom: 16px;
+}
+
+#color-buttons button {
+  border: none;
+  margin: 10px;
+  width: 80px;
+  height: 40px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: outline 0.2s;
+  outline: 2px solid #222;
+}
+
+#color-buttons button.selected {
+  outline: 3px solid #f9d423;
+}
+
+#color-feedback {
+  font-size: 1.1em;
+  margin-top: 12px;
+  min-height: 1.5em;
+  color: #f9d423;
+}
+
+/* Overlay for portrait mode */
+#rotate-overlay {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,30,30,0.98);
+  color: #f9d423;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 40vh;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Portrait orientation detection */
+@media only screen and (orientation:portrait) {
+  #rotate-overlay {
+    display: block;
+  }
+  #game-container, .title-row, .tabs, .tab-content {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* Payment overlay */
+#payment-overlay {
+  position: fixed;
+  z-index: 99999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,30,30,0.97);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-modal {
+  background: #222;
+  border-radius: 18px;
+  box-shadow: 0 0 40px #000;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 350px;
+  width: 90vw;
+}
+
+.psycho-logo {
+  width: 100px;
+  max-width: 100%;
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+.payment-text {
+  font-size: 1.2em;
+  margin-bottom: 22px;
+  color: #f9d423;
+}
+
+#rzp-button {
+  font-size: 1.2em;
+  padding: 10px 36px;
+  border-radius: 8px;
+  background: #0074D9;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px #000;
+}
+
+#rzp-button:hover {
+  background: #2ecc40;
+  color: #181818;
+}
+
+.note {
+  color: #f9d423;
+  margin-bottom: 12px;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .payment-modal { padding: 12vw 4vw; }
+  .psycho-logo { width: 70px; }
+}
