@@ -229,20 +229,41 @@ seqCanvas.addEventListener('click', function() {
 seqInitGame();
 seqGameLoop();
 
-/* 2. Crazy Math Challenge */
+/* 2. Crazy Math Challenge (with options) */
 const mathOps = ["+", "-", "×", "÷", "crazy"];
 const mathQuestionDiv = document.getElementById('math-question');
-const mathAnswerInput = document.getElementById('math-answer');
-const mathSubmitBtn = document.getElementById('math-submit');
+const mathOptionsDiv = document.getElementById('math-options');
 const mathFeedbackDiv = document.getElementById('math-feedback');
 const mathScoreDiv = document.getElementById('math-score');
 let mathScore = 0, mathCurrent, mathCurrentAns;
+
+function getFakeAnswers(correct, type) {
+  let arr = [];
+  let used = {[correct]: true};
+  if (type === "yesno") return ["yes", "no"];
+  while (arr.length < 3) {
+    let fake;
+    if (typeof correct === "number") {
+      fake = correct + Math.floor(Math.random() * 10 - 5);
+      if (fake == correct) fake += 2;
+    } else {
+      fake = (Math.random() < 0.5) ? "yes" : "no";
+    }
+    if (!used[fake]) {
+      arr.push(fake);
+      used[fake] = true;
+    }
+  }
+  arr.push(correct);
+  arr = arr.sort(() => Math.random() - 0.5);
+  return arr;
+}
 
 function mathGenerate() {
   let op = mathOps[Math.floor(Math.random() * mathOps.length)];
   let a = Math.floor(Math.random() * 100) + 1;
   let b = Math.floor(Math.random() * 100) + 1;
-  let q, ans;
+  let q, ans, fakeType = "";
   if (op === "+") {
     q = `${a} + ${b} = ?`;
     ans = a + b;
@@ -261,36 +282,43 @@ function mathGenerate() {
     const crazyTypes = [
       {q: `What is ${a} + ${b} × 2?`, ans: a + b * 2},
       {q: `What is (${a} × ${b}) - ${b}?`, ans: (a * b) - b},
-      {q: `Is ${a} even? (yes/no)`, ans: a % 2 === 0 ? "yes" : "no"},
+      {q: `Is ${a} even? (yes/no)`, ans: a % 2 === 0 ? "yes" : "no", type: "yesno"},
       {q: `What is the last digit of ${a * b}?`, ans: (a * b % 10).toString()},
       {q: `What is the sum of digits of ${a + b}?`, ans: ((a + b).toString().split('').reduce((s,d)=>s+parseInt(d),0)).toString()}
     ];
     let pick = crazyTypes[Math.floor(Math.random() * crazyTypes.length)];
     q = pick.q;
     ans = pick.ans;
+    if (pick.type) fakeType = pick.type;
   }
   mathCurrent = q;
   mathCurrentAns = ans;
   mathQuestionDiv.textContent = q;
-  mathAnswerInput.value = "";
   mathFeedbackDiv.textContent = "";
+
+  // Generate options
+  let opts = getFakeAnswers(ans, fakeType);
+  mathOptionsDiv.innerHTML = "";
+  opts.forEach(option => {
+    let btn = document.createElement('button');
+    btn.textContent = option;
+    btn.style.margin = "8px";
+    btn.style.fontSize = "1.1em";
+    btn.onclick = function() {
+      if (String(option).toLowerCase() === String(ans).toLowerCase()) {
+        mathScore++;
+        mathFeedbackDiv.textContent = "Correct! 🎉";
+      } else {
+        mathFeedbackDiv.textContent = `Wrong! Correct answer: ${ans}`;
+      }
+      mathScoreDiv.textContent = `Score: ${mathScore}`;
+      setTimeout(mathGenerate, 1200);
+    };
+    mathOptionsDiv.appendChild(btn);
+  });
 }
+
 mathGenerate();
-mathSubmitBtn.onclick = function() {
-  let user = mathAnswerInput.value.trim().toLowerCase();
-  let correct = mathCurrentAns.toString().toLowerCase();
-  if (user === correct) {
-    mathScore++;
-    mathFeedbackDiv.textContent = "Correct! 🎉";
-  } else {
-    mathFeedbackDiv.textContent = `Wrong! Correct answer: ${mathCurrentAns}`;
-  }
-  mathScoreDiv.textContent = `Score: ${mathScore}`;
-  setTimeout(mathGenerate, 1200);
-};
-mathAnswerInput.addEventListener('keydown', function(e) {
-  if (e.key === "Enter") mathSubmitBtn.click();
-});
 
 /* 3. Guess the Thing/Fruit */
 const fruitQuestions = [
