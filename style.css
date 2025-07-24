@@ -1,123 +1,189 @@
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #20232a;
+  background: #181818;
   color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
   margin: 0;
-  padding: 0;
   min-height: 100vh;
+  min-width: 100vw;
+  box-sizing: border-box;
 }
+
 .title-row {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
   gap: 18px;
-  margin-top: 26px;
-  margin-bottom: 18px;
 }
+
 .psycho-logo {
-  width: 48px;
-  height: 48px;
+  height: 64px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
   border-radius: 14px;
   box-shadow: 0 2px 8px #3338;
 }
+
 h1 {
-  font-size: 2.1em;
-  font-weight: 600;
-  color: #f9d423;
+  font-size: 2em;
   margin: 0;
+  padding: 0;
+  display: inline-block;
+  color: #f9d423;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
+
 .tabs {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
   gap: 10px;
+  margin-bottom: 18px;
 }
+
 .tab-btn {
-  background: #2ecc40;
+  background: #222;
   color: #fff;
   border: none;
-  border-radius: 10px 10px 0 0;
-  padding: 12px 26px;
+  padding: 10px 24px;
+  margin: 0 4px;
+  font-size: 1.08em;
   cursor: pointer;
-  font-size: 1.1em;
-  outline: none;
-  transition: background 0.2s;
+  border-bottom: 2px solid transparent;
+  border-radius: 8px 8px 0 0;
+  transition: background 0.2s, border-bottom 0.2s, color 0.2s;
   font-weight: 500;
+  outline: none;
 }
 .tab-btn.active,
 .tab-btn:hover {
-  background: #f9d423;
-  color: #20232a;
+  background: #0074D9;
+  color: #f9d423;
+  border-bottom: 2px solid #f9d423;
 }
+
 #game-container {
-  max-width: 820px;
-  margin: 0 auto 42px auto;
-  background: #24292f;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px #191b1d99;
-  padding: 24px 18px;
-  min-height: 400px;
+  margin: 0 auto;
+  max-width: 950px;
+  background: #222;
+  border-radius: 14px;
+  box-shadow: 0 2px 24px #191b1d99;
+  padding: 18px 8px 28px 8px;
 }
+
 .tab-content {
-  margin-top: 10px;
+  margin-top: 15px;
+  min-height: 340px;
+  padding: 22px 0;
+  background: #222;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 0 15px #000;
 }
+
 #seq-canvas {
   background: #111;
   border-radius: 12px;
-  box-shadow: 0 2px 10px #0074D955;
-  margin-bottom: 14px;
+  border: 3px solid #fff;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 14px auto;
+  box-shadow: 0 0 30px #000;
+  max-width: 100%;
+  min-height: 120px;
+  height: auto;
 }
-#seq-target-sequence {
-  font-size: 1.6em;
-  text-align: center;
-  margin-bottom: 8px;
+
+#seq-score, #seq-target-sequence, #seq-message {
+  font-size: 1.18em;
+  margin: 8px 0;
+  color: #f9d423;
+  font-weight: 500;
 }
-#seq-score,
-#seq-message {
-  font-size: 1.15em;
-  text-align: center;
-  margin-bottom: 6px;
+
+#seq-target-sequence span {
+  font-size: 1.4em;
+  margin: 0 2px;
 }
+
 #math-question, #fruit-hint, #color-instruction {
-  font-size: 1.3em;
-  text-align: center;
-  margin-bottom: 12px;
+  font-size: 1.27em;
+  margin-bottom: 13px;
+  color: #f9d423;
+  font-weight: 500;
 }
-#math-options button,
-#fruit-options button {
+
+#math-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#math-options button {
   background: #0074D9;
   color: #fff;
   border: none;
   border-radius: 8px;
   padding: 10px 26px;
-  margin: 8px;
+  margin: 8px 0;
+  font-size: 1.08em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px #1115;
+}
+#math-options button:hover {
+  background: #f9d423;
+  color: #181818;
+}
+
+#math-feedback, #fruit-feedback, #color-feedback {
+  font-size: 1.13em;
+  margin-top: 10px;
+  min-height: 1.5em;
+  color: #f9d423;
+  font-weight: 500;
+}
+
+#math-score, #fruit-score, #color-score {
   font-size: 1.1em;
+  text-align: right;
+  margin-top: 12px;
+  margin-bottom: 2px;
+  color: #2ecc40;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#fruit-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+#fruit-options button {
+  background: #0074D9;
+  color: #fff;
+  border: none;
+  margin: 6px 0;
+  padding: 12px 22px;
+  font-size: 1.1em;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   font-weight: 500;
+  box-shadow: 0 2px 8px #1115;
 }
-#math-options button:hover,
 #fruit-options button:hover {
   background: #f9d423;
-  color: #20232a;
+  color: #181818;
 }
-#math-feedback, #fruit-feedback, #color-feedback {
-  font-size: 1.16em;
-  margin-top: 10px;
-  text-align: center;
-  min-height: 24px;
-}
-#math-score, #fruit-score, #color-score {
-  font-size: 1.12em;
-  text-align: right;
-  margin-top: 12px;
-  margin-bottom: 4px;
-  color: #f9d423;
-  font-weight: 600;
-}
+
 #color-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -125,103 +191,123 @@ h1 {
   gap: 14px;
   margin-bottom: 12px;
 }
+
 #color-buttons button {
   border: none;
   border-radius: 8px;
   width: 80px;
   height: 40px;
   cursor: pointer;
-  margin: 10px;
+  margin: 10px 5px;
   box-shadow: 0 2px 8px #1115;
-  transition: transform 0.1s;
+  outline: 2px solid #222;
+  transition: outline 0.2s, transform 0.1s;
 }
-#color-buttons button:active {
-  transform: scale(0.95);
-  box-shadow: 0 1px 4px #1119;
-}
-footer {
-  text-align: center;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-}
-#payment-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(32,32,32,0.88);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-.payment-modal {
-  background: #24292f;
-  border-radius: 16px;
-  padding: 34px 34px 24px 34px;
-  box-shadow: 0 6px 32px #222a;
-  text-align: center;
-  max-width: 380px;
-}
-.payment-text {
-  font-size: 1.2em;
-  margin-bottom: 22px;
-}
-#rzp-button {
-  background: #f9d423;
-  color: #20232a;
-  border: none;
-  border-radius: 8px;
-  padding: 13px 34px;
-  font-size: 1.22em;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
-  margin-bottom: 18px;
-}
-#rzp-button:hover {
-  background: #2ecc40;
-  color: #fff;
-}
-.note {
-  font-size: 0.97em;
-  color: #ccc;
-  margin-top: 8px;
-}
-#rotate-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(32,32,32,0.95);
-  color: #fff;
-  font-size: 2em;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  text-align: center;
-  padding: 12vw;
+#color-buttons button:active,
+#color-buttons button.selected {
+  outline: 3px solid #f9d423;
+  transform: scale(0.96);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  #game-container {
-    max-width: 99vw;
-    padding: 12px 2vw;
-    min-height: 320px;
+footer {
+  text-align: center;
+  margin-top: 34px;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  color: #2ecc40;
+}
+
+/* Overlay for portrait mode */
+#rotate-overlay {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,30,30,0.98);
+  color: #f9d423;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 40vh;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Portrait orientation detection */
+@media only screen and (orientation:portrait) {
+  #rotate-overlay {
+    display: block;
   }
-  #seq-canvas {
-    width: 98vw !important;
-    height: 180px !important;
+  #game-container, .title-row, .tabs, .tab-content {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
   }
 }
-@media (max-width: 500px) {
-  h1 {
-    font-size: 1.18em;
-  }
-  .psycho-logo {
-    width: 32px;
-    height: 32px;
-  }
-  .payment-modal {
-    max-width: 98vw;
-    padding: 16px 4vw 12px 4vw;
-  }
+
+/* Payment overlay */
+#payment-overlay {
+  position: fixed;
+  z-index: 99999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,30,30,0.97);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-modal {
+  background: #222;
+  border-radius: 18px;
+  box-shadow: 0 0 40px #000;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 350px;
+  width: 90vw;
+}
+
+.payment-text {
+  font-size: 1.18em;
+  margin-bottom: 20px;
+  color: #f9d423;
+}
+
+#rzp-button {
+  font-size: 1.15em;
+  padding: 10px 36px;
+  border-radius: 8px;
+  background: #0074D9;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px #000;
+  transition: background 0.2s, color 0.2s;
+}
+
+#rzp-button:hover {
+  background: #2ecc40;
+  color: #181818;
+}
+
+.note {
+  color: #f9d423;
+  margin-bottom: 12px;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .payment-modal { padding: 12vw 4vw; }
+  .psycho-logo { width: 70px; }
+  #game-container { padding: 8px 2vw; }
+  h1 { font-size: 1.18em; }
+}
+
+@media only screen and (max-width: 420px) {
+  #game-container { padding: 2vw; font-size: 0.96em; }
+  .tab-btn { font-size: 0.94em; padding: 9px 10px; }
+  .tab-content { padding: 12px 0; }
 }
