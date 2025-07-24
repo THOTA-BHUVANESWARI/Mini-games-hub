@@ -82,6 +82,11 @@ h1 {
   background: #222;
   border-radius: 0 0 12px 12px;
   box-shadow: 0 0 15px #000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #seq-canvas {
@@ -101,6 +106,8 @@ h1 {
   margin: 8px 0;
   color: #f9d423;
   font-weight: 500;
+  text-align: center;
+  width: 100%;
 }
 
 #seq-target-sequence span {
@@ -113,6 +120,8 @@ h1 {
   margin-bottom: 13px;
   color: #f9d423;
   font-weight: 500;
+  width: 100%;
+  text-align: center;
 }
 
 #math-options {
@@ -121,6 +130,7 @@ h1 {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 #math-options button {
@@ -137,6 +147,8 @@ h1 {
   box-shadow: 0 2px 8px #1115;
   min-width: 90px;
   min-height: 44px;
+  text-align: center;
+  display: inline-block;
 }
 #math-options button:hover {
   background: #f9d423;
@@ -149,16 +161,22 @@ h1 {
   min-height: 1.5em;
   color: #f9d423;
   font-weight: 500;
+  text-align: center;
+  width: 100%;
 }
 
 #math-score, #fruit-score, #color-score {
   font-size: 1.1em;
-  text-align: right;
   margin-top: 12px;
   margin-bottom: 2px;
   color: #2ecc40;
   font-weight: 700;
   letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #fruit-options {
@@ -167,6 +185,7 @@ h1 {
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 #fruit-options button {
@@ -183,6 +202,8 @@ h1 {
   box-shadow: 0 2px 8px #1115;
   min-width: 90px;
   min-height: 44px;
+  text-align: center;
+  display: inline-block;
 }
 #fruit-options button:hover {
   background: #f9d423;
@@ -195,6 +216,7 @@ h1 {
   justify-content: center;
   gap: 14px;
   margin-bottom: 12px;
+  width: 100%;
 }
 
 #color-buttons button {
@@ -207,6 +229,8 @@ h1 {
   box-shadow: 0 2px 8px #1115;
   outline: 2px solid #222;
   transition: outline 0.2s, transform 0.1s;
+  text-align: center;
+  display: inline-block;
 }
 #color-buttons button:active,
 #color-buttons button.selected {
@@ -318,6 +342,7 @@ footer {
   .tab-content { padding: 12px 0; min-height: 220px; }
   #seq-canvas { min-height: 70px; }
   #fruit-options button, #math-options button { padding: 10px 10px; font-size: 1em; min-width: 80px; min-height: 38px; }
+  #math-score, #fruit-score, #color-score { font-size: 1em;}
 }
 
 /* Mobile */
@@ -329,16 +354,19 @@ footer {
   .title-row { gap: 6px; }
   .tab-btn { font-size: 0.96em; padding: 7px 8px; }
   #seq-canvas { min-height: 50px; }
-  .tab-content { padding: 12px 0; min-height: 120px; }
+  .tab-content { padding: 8px 0; min-height: 120px; }
   #fruit-options button, #math-options button { font-size: 0.96em; padding: 8px 5px; min-width: 70px; min-height: 34px; }
   #color-buttons button { width: 60px; height: 32px; }
   #math-question, #fruit-hint, #color-instruction { font-size: 1em; }
+  #math-score, #fruit-score, #color-score { font-size: 1em;}
 }
 
+/* Small Mobile */
 @media only screen and (max-width: 420px) {
   #game-container { padding: 2vw; font-size: 0.93em; }
   .tab-btn { font-size: 0.85em; padding: 7px 4px; }
   .tab-content { padding: 6px 0; }
   #fruit-options button, #math-options button { font-size: 0.9em; padding: 7px 2px; min-width: 56px; min-height: 28px; }
   #color-buttons button { width: 42px; height: 22px; }
+  #math-score, #fruit-score, #color-score { font-size: 0.93em;}
 }
