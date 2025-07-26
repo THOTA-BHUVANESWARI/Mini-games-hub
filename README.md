@@ -5,8 +5,6 @@ Welcome to **Mini Games Hub** – a collection of fun, interactive browser games
 ## What is this site?
 
 Mini Games Hub is designed for quick entertainment and casual learning. Play a variety of mini games directly in your browser, with no downloads required.  
-To support a good cause, a one-time fee of ₹10 is required to unlock lifetime access. All payments go towards helping those in need.
-
 ## Games Included
 
 - **Alphabet Sequence Catcher**  
@@ -20,10 +18,6 @@ To support a good cause, a one-time fee of ₹10 is required to unlock lifetime 
 
 - **Color Match**  
   Quickly identify and click the correct color block (no names shown on colors for added challenge).
-
-## How does payment work?
-
-When you visit the site for the first time, you'll be prompted to make a secure one-time payment via Razorpay. After payment, you get unlimited access to all games.
 
 ## How to run locally
 
@@ -47,9 +41,6 @@ https://Yashwanth9898GitHub.github.io/mini-games-hub/
 
 Feel free to fork the repo and suggest new games or improvements via pull requests!
 
-## License
-
-This project is licensed under the MIT License.
 
 ---
 
