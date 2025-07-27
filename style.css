@@ -247,34 +247,6 @@ footer {
   color: #2ecc40;
 }
 
-/* Overlay for portrait mode */
-#rotate-overlay {
-  display: none;
-  position: fixed;
-  z-index: 99999;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(30,30,30,0.98);
-  color: #f9d423;
-  font-size: 2em;
-  text-align: center;
-  padding-top: 40vh;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-}
-
-/* Portrait orientation detection */
-@media only screen and (orientation:portrait) {
-  #rotate-overlay {
-    display: block;
-  }
-  #game-container, .title-row, .tabs, .tab-content {
-    filter: blur(8px);
-    pointer-events: none;
-    user-select: none;
-  }
-}
-
 /* Tablet */
 @media only screen and (max-width: 900px) {
   #game-container {
@@ -315,4 +287,85 @@ footer {
   #fruit-options button, #math-options button { font-size: 0.9em; padding: 7px 2px; min-width: 56px; min-height: 28px; }
   #color-buttons button { width: 42px; height: 22px; }
   #math-score, #fruit-score, #color-score { font-size: 0.93em;}
+}
+
+/* === Pattern Matcher Game === */
+#pattern-question {
+  font-size: 1.4em;
+  color: #f9d423;
+  margin-bottom: 18px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+#pattern-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+#pattern-options button {
+  background: #0074D9;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 500;
+  box-shadow: 0 2px 8px #1115;
+  min-width: 90px;
+  min-height: 44px;
+}
+
+#pattern-options button:hover {
+  background: #f9d423;
+  color: #181818;
+}
+
+#pattern-feedback {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #f9d423;
+  margin-top: 10px;
+  min-height: 1.5em;
+  text-align: center;
+  width: 100%;
+}
+
+#pattern-score {
+  font-size: 1.08em;
+  font-weight: 700;
+  color: #2ecc40;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  #pattern-options button {
+    padding: 10px 14px;
+    font-size: 1em;
+    min-width: 70px;
+    min-height: 36px;
+  }
+  #pattern-question {
+    font-size: 1.15em;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  #pattern-options button {
+    padding: 8px 10px;
+    font-size: 0.92em;
+    min-width: 60px;
+    min-height: 30px;
+  }
+  #pattern-question {
+    font-size: 1.02em;
+  }
 }
