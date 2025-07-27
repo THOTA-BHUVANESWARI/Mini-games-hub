@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Mini Games Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="rotate-overlay">Please rotate your device to landscape mode to play!</div>
   <div class="title-row">
     <img src="logo.png" alt="Psycho Logo" class="psycho-logo">
     <h1>Mini Games Hub</h1>
   </div>
+
   <div class="tabs">
     <button class="tab-btn active" data-tab="seq">Alphabet Sequence Catcher</button>
     <button class="tab-btn" data-tab="maths">Crazy Math Challenge</button>
     <button class="tab-btn" data-tab="fruit">Guess the Thing/Fruit</button>
     <button class="tab-btn" data-tab="color">Color Match</button>
+    <button class="tab-btn" data-tab="pattern">Pattern Matcher</button>
+
   </div>
   <div id="game-container">
     <div class="tab-content" id="seq">
@@ -42,6 +43,12 @@
       <div id="color-buttons"></div>
       <div id="color-feedback"></div>
       <div id="color-score">Score: 0</div>
+    </div>
+    <div class="tab-content" id="pattern" style="display:none;">
+      <div id="pattern-question"></div>
+      <div id="pattern-options"></div>
+      <div id="pattern-feedback"></div>
+      <div id="pattern-score">Score: 0</div>
     </div>
   </div>
   <footer style="margin-top:32px; font-size:1.1em; color:#f9d423;">
