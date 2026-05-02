@@ -23,19 +23,14 @@ Mini Games Hub is designed for quick entertainment and casual learning. Play a v
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Yashwanth9898GitHub/mini-games-hub.git
+   git clone https://github.com/THOTA-BHUVANESWARI/Mini-games-hub.git
    cd mini-games-hub
    ```
 
 2. Open `index.html` in your browser.
 
-## Live Demo
 
-Once you push your code to GitHub and enable GitHub Pages, your site will be live at:
 
-```
-https://Yashwanth9898GitHub.github.io/mini-games-hub/
-```
 
 ## Contributing
 
